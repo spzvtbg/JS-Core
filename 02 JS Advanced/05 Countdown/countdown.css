@@ -1,0 +1,9 @@
+.timer {
+    border:2px solid dimgray;
+    text-align: center; 
+    font: bold 40px Times, serif;
+    line-height: 30px;
+    margin-top: 50px;
+    border-radius: 5px;
+    padding: 10px 0 10px 0;
+}

@@ -1,0 +1,36 @@
+.btn {
+    margin-top: 30px;
+}
+
+.form {
+    background-color: rgb(245, 245, 245, 1);
+    border: 1px solid lightgray;
+    font: bold 20px Times, serif;
+    margin: 20px;
+    padding: 20px;
+    shape-outside: -moz-linear-gradient('black');
+}
+
+input {
+    border: 1px solid lightgrey;
+    font: bold 20px Times, serif;
+    line-height: 30px;
+    text-align: center;
+    width: 100%;
+}
+
+span {
+    font: bold 20px Times, serif;
+    line-height: 30px;
+    margin-left: 20px;
+    width: 100%;
+}
+
+
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
