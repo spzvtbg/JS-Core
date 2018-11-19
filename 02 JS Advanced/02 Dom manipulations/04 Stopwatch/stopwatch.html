@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Index</title>
+    </head>
+    <body>
+        <div id="time" style="border:3px solid blue; text-align:center; font-size:2em; margin-bottom:10px">00:00</div>
+        <button id="startBtn">Start</button>
+        <button id="stopBtn" disabled="true">Stop</button>
+        <script>
+            window.onload = function() { stopwatch(); }
+
+            function stopwatch () {
+                let time, interval;
+                let startBtn = document.getElementById('startBtn');
+                let stopBtn = document.getElementById('stopBtn');
+
+                startBtn.addEventListener('click', function () {
+                    time = -1;
+                    increment();
+                    interval = setInterval(increment, 1000);
+                    startBtn.disabled = true;
+                    stopBtn.disabled = false;
+                });
+
+                stopBtn.addEventListener('click', function () {
+                    clearInterval(interval);
+                    stopBtn.disabled = true;
+                    startBtn.disabled = false;
+                });
+
+                function increment() {
+                    time++;
+
+                    let minutes = Math.trunc(time / 60).toString();
+                    let seconds = (time % 60).toString();
+                    let timeString = `${minutes.length > 1 ? minutes : "0" + minutes}:${seconds.length > 1 ? seconds : "0" + seconds}`;
+
+                    document.getElementById('time').textContent = timeString;
+                }
+            }
+        </script>
+    </body>
+</html>
