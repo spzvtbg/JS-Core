@@ -1,0 +1,18 @@
+{
+    "condition": {
+        "POST": "https://api.github.com/repos/testnakov/test-nakov-repo/issues",
+        "body_text": {
+            "title": "I have create an issue",
+	        "body": "Minor bug",
+	        "labels": ["bug", "minor"]
+        }
+    },
+    "solution": {
+        "state": "open",
+        "locked": false,
+        "assignee": null,
+        "assignees": [],
+        "milestone": null,
+        "comments": 0
+    }
+}

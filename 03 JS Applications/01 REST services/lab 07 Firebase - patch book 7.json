@@ -1,0 +1,11 @@
+{
+    "PATCH": "https://js-apps-c2c3a.firebaseio.com/Books/7.json",
+    "patch-request-body": {
+        "year": 1981,
+        "author": "Author Changed"      
+    },
+    "patch-response": {
+        "year": 1981,
+        "author": "Author Changed"
+    }
+}

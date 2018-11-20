@@ -1,0 +1,19 @@
+{
+    "POST": "https://baas.kinvey.com/user/kid_ryljWKZRQ/login/",
+    "request-body": {
+        "username": "guest",
+        "password": "guest"
+    },
+    "response": {
+        "_id": "5bf40fb3251fa70cfbeb52d5",
+        "username": "guest",
+        "_kmd": {
+            "lmt": "2018-11-20T13:44:19.844Z",
+            "ect": "2018-11-20T13:44:19.844Z",
+            "authtoken": "96fe692d-7074-4891-8a72-7ea34bfb7654.BaAW53r7On3MmEUENr2XdfZq+zF+c716MbxKjZ7DhOI="
+        },
+        "_acl": {
+            "creator": "5bf40fb3251fa70cfbeb52d5"
+        }
+    }
+}

@@ -1,0 +1,5 @@
+{
+    "PUT": "https://js-apps-c2c3a.firebaseio.com/Books/7/author/.json",
+    "patch-request-body": "New author was assigned",
+    "patch-response": "New author was assigned"
+}

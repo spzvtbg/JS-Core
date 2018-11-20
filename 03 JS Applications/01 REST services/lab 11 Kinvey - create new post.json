@@ -1,0 +1,19 @@
+{
+    "request-body": {
+        "title": "New Title",
+        "body": "New Post Body"
+    },
+    "POST": "https://baas.kinvey.com/appdata/kid_ryljWKZRQ/posts",
+    "response": {
+        "title": "New Title",
+        "body": "New Post Body",
+        "_acl": {
+            "creator": "5bf4021873796c5283f5799a"
+        },
+        "_kmd": {
+            "lmt": "2018-11-20T13:14:47.095Z",
+            "ect": "2018-11-20T13:14:47.095Z"
+        },
+        "_id": "5bf408c753ea1113febd5d0c"
+    }
+}

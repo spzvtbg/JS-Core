@@ -1,0 +1,9 @@
+{
+    "GET": "https://baas.kinvey.com/appdata/kid_ryljWKZRQ",
+    "response": {
+        "version": "3.10.5",
+        "kinvey": "hello MyApp",
+        "appName": "MyApp",
+        "environmentName": "Development"
+    }
+}

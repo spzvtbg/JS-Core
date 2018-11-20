@@ -1,0 +1,55 @@
+{
+    "posts":[
+        {
+            "title": "First Post Title",
+            "body": "First Post Body"
+        },
+        {
+            "title": "Second Post Title",
+            "body": "Second Post Body"
+        },
+        {
+            "title": "Third Post Title",
+            "body": "Third Post Body"
+        }
+    ],
+    "GET": "https://baas.kinvey.com/appdata/kid_ryljWKZRQ/posts",
+    "responce": [
+        {
+            "_id": "5bf404c86cc13252e560b01e",
+            "title": "Second Post Title",
+            "body": "Second Post Body",
+            "_acl": {
+                "creator": "kid_ryljWKZRQ"
+            },
+            "_kmd": {
+                "lmt": "2018-11-20T12:57:44.517Z",
+                "ect": "2018-11-20T12:57:44.517Z"
+            }
+        },
+        {
+            "_id": "5bf404c89eae6852e6ff8bfb",
+            "title": "Third Post Title",
+            "body": "Third Post Body",
+            "_acl": {
+                "creator": "kid_ryljWKZRQ"
+            },
+            "_kmd": {
+                "lmt": "2018-11-20T12:57:44.580Z",
+                "ect": "2018-11-20T12:57:44.580Z"
+            }
+        },
+        {
+            "_id": "5bf404c8c3ddfa6b0ae574c1",
+            "title": "First Post Title",
+            "body": "First Post Body",
+            "_acl": {
+                "creator": "kid_ryljWKZRQ"
+            },
+            "_kmd": {
+                "lmt": "2018-11-20T12:57:44.580Z",
+                "ect": "2018-11-20T12:57:44.580Z"
+            }
+        }
+    ]
+}

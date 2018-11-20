@@ -1,0 +1,14 @@
+{
+    "Books": {
+        "1": {
+            "author": "Ivan Vazov",
+            "title": "Under the Yoke"
+        },
+        "2": {
+            "author": "Svetlin Nakov",
+            "title": "C# Fundamentals"
+        }
+    },
+    "coment": "Above json is for importing data to the Firebase",
+    "GET": "https://js-apps-c2c3a.firebaseio.com/.json"
+}

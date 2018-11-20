@@ -1,0 +1,10 @@
+{
+    "POST": "https://js-apps-c2c3a.firebaseio.com/Books.json",
+    "create-request-body": {
+        "title":"New Title",
+        "author":"New Author"
+    },
+    "create-response": {
+        "name": "-LRl1_qJLrlN7bdtqylP"
+    }
+}

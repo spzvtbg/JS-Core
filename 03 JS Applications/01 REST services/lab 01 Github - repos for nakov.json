@@ -1,0 +1,29 @@
+{
+    "condition": "GET: https://api.github.com/users/testnakov/repos",
+    "solution": {
+        "id": 73502401,
+	    "name": "Flappy-Nakov",
+	    "full_name": "testnakov/Flappy-Nakov",
+	    "private": false,
+	    "owner": {
+	    	"login": "testnakov",
+	    	"id": 23406465,
+	    	"node_id": "MDQ6VXNlcjIzNDA2NDY1",
+	    	"avatar_url": "https://avatars1.githubusercontent.com/u/23406465?v=4",
+	    	"gravatar_id": "",
+	    	"url": "https://api.github.com/users/testnakov",
+	    	"html_url": "https://github.com/testnakov",
+	    	"followers_url": "https://api.github.com/users/testnakov/followers",
+	    	"following_url": "https://api.github.com/users/testnakov/following{/other_user}",
+	    	"gists_url": "https://api.github.com/users/testnakov/gists{/gist_id}",
+	    	"starred_url": "https://api.github.com/users/testnakov/starred{/owner}{/repo}",
+	    	"subscriptions_url": "https://api.github.com/users/testnakov/subscriptions",
+	    	"organizations_url": "https://api.github.com/users/testnakov/orgs",
+	    	"repos_url": "https://api.github.com/users/testnakov/repos",
+	    	"events_url": "https://api.github.com/users/testnakov/events{/privacy}",
+	    	"received_events_url": "https://api.github.com/users/testnakov/received_events",
+	    	"type": "User",
+	    	"site_admin": false
+	    }
+    }
+}
