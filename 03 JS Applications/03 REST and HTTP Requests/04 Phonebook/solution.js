@@ -1,4 +1,6 @@
 $(function attachEvents () {
+    const name = $('#person');
+    const phone = $('#phone');
     const phonebook = $('#phonebook');
 
     function showContacts (response) {
@@ -36,9 +38,6 @@ $(function attachEvents () {
     }
 
     function createContact () {
-        const name = $('#person');
-        const phone = $('#phone');
-
         const request = {
             url: `https://phonebook-nakov.firebaseio.com/phonebook.json`,
             method: 'POST',
@@ -57,6 +56,5 @@ $(function attachEvents () {
     }
 
     $('#btnLoad').on('click', refresh);
-
     $('#btnCreate').on('click', createContact);
 });
