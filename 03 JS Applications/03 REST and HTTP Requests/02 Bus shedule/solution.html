@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Index</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>   
+        <script src="solution.js"></script>
+    </head>
+    <body>
+        <div id="schedule">
+            <div id="info"><span class="info">Not Connected</span></div>
+            <div id="controls">
+                <input id="depart" value="Depart" type="button" onclick="result.depart()">
+                <input id="arrive" value="Arrive" type="button" onclick="result.arrive()" disabled="true">
+            </div>
+        </div>
+        <script>
+            function solve() {
+                const infoBlock = $('#info');
+                const arriveBtn = $('#arrive');
+                const departBtn = $('#depart');
+
+                let stationName = 'Next stop Depot';
+                let nextStopId = 'depot';
+
+                function station (response) {
+                    stationName = `Next stop ${response.name}`;
+                    nextStopId = response.next;
+                };
+                
+                function request (id) {
+                    return {
+                        url: `https://judgetests.firebaseio.com/schedule/${id}.json`,
+                        method: 'GET',
+                        success: station
+                    };
+                }
+
+                function arriving () {
+                    arriveBtn.prop('disabled', true);
+                    departBtn.prop('disabled', false);
+                    infoBlock.children()[0].textContent = stationName;
+                    $.ajax(request(nextStopId));
+                }
+
+                function departing () {
+                    departBtn.prop('disabled', true);
+                    arriveBtn.prop('disabled', false);
+                    infoBlock.children()[0].textContent = stationName;
+                    $.ajax(request(nextStopId));
+                }
+
+                return {
+                  depart: departing,
+                  arrive: arriving
+                };
+            }
+
+            const result = solve();
+        </script>
+    </body>
+</html>
