@@ -1,0 +1,54 @@
+.success {
+    color: whitesmoke;
+    background-color: rgb(0, 121, 26)
+}
+
+.success:hover {
+    background-color: rgb(43, 179, 72)
+}
+
+.header {
+    color: dimgray;
+    font: bold 30px Times, serif;
+    text-align: center;
+    border-bottom: 2px solid firebrick;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    display: block;
+}
+
+li {
+    padding: 0;
+    margin-right: 15px;
+    display: block;
+}
+
+span, a {
+    font: bolder 20px Constantia, serif;
+    padding: 5px 10px 5px 10px;
+    text-align: center;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.delete {
+    color: firebrick;
+}
+
+.delete:hover {
+    color: rgb(221, 86, 86);
+    cursor: pointer;
+}
+
+.update {
+    color: rgb(33, 78, 104);
+}
+
+.update:hover {
+    color: rgb(60, 147, 197);
+    cursor: pointer;
+}

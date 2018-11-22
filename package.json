@@ -2,7 +2,11 @@
   "name": "js-core",
   "version": "1.0.0",
   "description": "",
-  "main": "${file}",
+  "main": "index.js",
+  "dependencies": {
+    "jquery": "^3.3.1"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,10 +19,5 @@
   "bugs": {
     "url": "https://github.com/spzvtbg/JS-Core/issues"
   },
-  "homepage": "https://github.com/spzvtbg/JS-Core#readme",
-  "dependencies": {
-    "jquery": "^3.3.1",
-    "node": "^11.1.0",
-    "nodejs": "6.0.0"
-  }
+  "homepage": "https://github.com/spzvtbg/JS-Core#readme"
 }

@@ -1,4 +1,4 @@
 function extractText () {
-    let result = $('#items>li').toArray().map(x => x.innerText).join(', ');
+    let result = $('li').toArray().map(x => x.textContent).join(', ');
     $('#result').text(result);
 }

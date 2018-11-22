@@ -1,0 +1,137 @@
+.col-1 {
+    width: 8.33333%;
+}
+
+.col-2 {
+    width: 16.66667%;
+}
+
+.col-3 {
+    width: 25%;
+}
+
+.col-4 {
+    width: 33.33333%;
+}
+
+.col-5 {
+    width: 41.66667%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-7 {
+    width: 58.33333%;
+}
+
+.col-8 {
+    width: 66.66667%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+.col-10 {
+    width: 80.33333%;
+}
+
+.col-11 {
+    width: 91.66667%;
+}
+
+.col-12 {
+    width: 100%;
+}
+
+.offset-1 {
+    margin-left: 8.33333%;
+}
+
+.offset-2 {
+    margin-left: 16.66667%;
+}
+
+.offset-3 {
+    margin-left: 25%;
+}
+
+.offset-4 {
+    margin-left: 33.33333%;
+}
+
+.offset-5 {
+    margin-left: 41.66667%;
+}
+
+.offset-6 {
+    margin-left: 50%;
+}
+
+.offset-7 {
+    margin-left: 58.33333%;
+}
+
+.offset-8 {
+    margin-left: 66.66667%;
+}
+
+.offset-9 {
+    margin-left: 75%;
+}
+
+.offset-10 {
+    margin-left: 80.33333%;
+}
+
+.offset-11 {
+    margin-left: 91.66667%;
+}
+
+.offset-12 {
+    margin-left: 100%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+form {
+    display: block;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+form label {
+    color: rgb(131, 131, 131);
+    font: bold 15px Times, serif;
+}
+
+form input[type=text] {
+    color: rgb(50, 50, 50);
+    display: block;
+    font: bolder 20px Times, serif;
+    width: 100%;
+    padding: 5px 20px 5px 20px;
+    margin: 3px 0 0 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+form input[type=button] {
+    font: bold 20px Times, serif;
+    padding: 5px 0 5px 0;
+    margin: 10px 0 0 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.form-group {
+    margin: 10px 0 0 0; 
+    box-sizing: border-box;
+}
