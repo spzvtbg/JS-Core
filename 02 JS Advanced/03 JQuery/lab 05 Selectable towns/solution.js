@@ -1,6 +1,6 @@
 function attachEvents() {
     const click = 'click';
-    const truety = 'true';
+    const truty = 'true';
     const falsy = 'false';
     const color = 'background-color';
     const selected = 'data-selected';
@@ -9,18 +9,18 @@ function attachEvents() {
     function selecting (e) {
         const target = $(e.target);
 
-        if (target.attr(selected) === truety) {
+        if (target.attr(selected) === truty) {
             target.attr(selected, falsy);
             target.css(color, '#FFF');
         } else {
-            target.attr(selected, truety);
+            target.attr(selected, truty);
             target.css(color, '#DDD');
         }
 
     }
 
     function listTowns (e) {
-        const selectedTowns = $('*[data-selected="true"]')
+        const selectedTowns = $(`*[${selected}="${truty}"]`)
             .toArray()
             .map(x => x.textContent)
             .join(', ');

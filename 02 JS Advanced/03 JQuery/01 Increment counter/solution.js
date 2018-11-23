@@ -1,36 +1,23 @@
-function attachEvents() {
-    const click = 'click';
-    const truety = 'true';
-    const falsy = 'false';
-    const color = 'background-color';
-    const selected = 'data-selected';
-    const listItems = $('#items');
+function increment(containerID) {
+    const container = $(containerID);
 
-    function selecting (e) {
-        const target = $(e.target);
+    let counter = 0;
 
-        if (target.attr(selected) === truety) {
-            target.attr(selected, falsy);
-            target.css(color, '#FFF');
-        } else {
-            target.attr(selected, truety);
-            target.css(color, '#DDD');
-        }
-
+    function initializeContent (containerID) {
+        container
+            .append($(`<textarea class="counter" disabled="disabled">${counter}</textarea>`))
+            .append($(`<button class="btn" id="incrementBtn">Increment</button>`))
+            .append($(`<button class="btn" id="addBtn">Add</button>`))
+            .append($(`<ul class="results"></ul>`));
     }
 
-    function listTowns (e) {
-        const selectedTowns = $('*[data-selected="true"]')
-            .toArray()
-            .map(x => x.textContent)
-            .join(', ');
+    initializeContent();
 
-        $('#selectedTowns')
-            .text(`Selected towns: ${selectedTowns}`);
+    $('#incrementBtn').on('click', function () {
+        $('.counter').first().val(++counter)
+    })
 
-    }
-
-    listItems.attr(selected, falsy);
-    listItems.on(click, selecting);
-    $('#showTownsButton').on(click, listTowns);
+    $('#addBtn').on('click', function () {
+        $('ul.results').first().append($(`<li>${counter}</li>`));
+    })
 }
