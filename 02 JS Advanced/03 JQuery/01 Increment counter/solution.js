@@ -3,7 +3,7 @@ function increment(containerID) {
 
     let counter = 0;
 
-    function initializeContent (containerID) {
+    function initializeContent () {
         container
             .append($(`<textarea class="counter" disabled="disabled">${counter}</textarea>`))
             .append($(`<button class="btn" id="incrementBtn">Increment</button>`))
@@ -14,10 +14,10 @@ function increment(containerID) {
     initializeContent();
 
     $('#incrementBtn').on('click', function () {
-        $('.counter').first().val(++counter)
-    })
+        $('.counter').first().val(++counter);
+    });
 
     $('#addBtn').on('click', function () {
         $('ul.results').first().append($(`<li>${counter}</li>`));
-    })
+    });
 }
