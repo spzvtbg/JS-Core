@@ -1,159 +1,125 @@
 function attachEvents () {
-    const constants = { 
-        baseURL: "https://baas.kinvey.com/appdata/kid_SkrfltaC7/biggestCatches",
-        contentType: "application/json",
-        setAuthorization: function (xhr) {
-            xhr.setRequestHeader("Authorization", `Basic ${btoa('demo:demo')}`);
-        },
-        GET: "GET",
-        DELETE: "DELETE",
-        POST: "POST",
-        PUT: "PUT",
-        fisherTemplate: '<div class="catch" data-id="{{{_id}}}">\n' +
-                        '	 <label>Angler</label>\n' +
-                        '	 <input type="text" class="angler" value="{{{angler}}}"/>\n' +
-                        '	 <label>Weight</label>\n' +
-                        '	 <input type="number" class="weight" value="{{{weight}}}"/>\n' +
-                        '	 <label>Species</label>\n' +
-                        '	 <input type="text" class="species" value="{{{species}}}"/>\n' +
-                        '	 <label>Location</label>\n' +
-                        '	 <input type="text" class="location" value="{{{location}}}"/>\n' +
-                        '	 <label>Bait</label>\n' +
-                        '	 <input type="text" class="bait" value="{{{bait}}}"/>\n' +
-                        '	 <label>Capture Time</label>\n' +
-                        '	 <input type="number" class="captureTime" value="{{{captureTime}}}"/>\n' +
-                        '	 <button class="update">Update</button>\n' +
-                        '	 <button class="delete">Delete</button>\n' +
-                        '</div>\n'
-    };
+    function constraints () {
 
-    function bindFisherHTMLTemplate (fisher, template) {
+        let createRequest = function (forMethod, urlParameter, body) {
 
-        for (const key in fisher) {
-            template = template.replace(`{{{${key}}}}`, fisher[key]);
+            const baseURL = "https://baas.kinvey.com/appdata/kid_SkrfltaC7/biggestCatches";
+
+            let request = {};
+
+            request['url'] = urlParameter ? baseURL + `/${urlParameter}` : baseURL;
+            request['contentType'] = `application/json; charset=utf-8`;
+            request['method'] = forMethod;
+            request['data'] = body ? body : {};
+
+            return  request;
         }
 
-        return template;
-    }
-
-    function getCurrentFisher (selector) {
-        let fisher = {};
-
-        $(selector).toArray().forEach(input => {
-
-                let jInput = $(input);
-                let value = jInput.val();
-                let property = input.classList[0];
-
-                jInput.val('');
-                fisher[property] = value;
-            });
-
-        return JSON.stringify(fisher);
-    }
-
-    function tryAddFisher () {
-
-        let createRequest = {
-            url: constants.baseURL,
-            method: constants.POST,
-            data: getCurrentFisher('#addForm input')
-        };
-
-        $.ajax(createRequest)
-        .then(tryLoadFishers)
-        .catch(logError);
-    }
-
-    function tryLoadFishers () {
-        
-        let readRequest = {
-            url: constants.baseURL,
-            method: constants.GET
-        };
-
-        $.ajax(readRequest)
-        .then(loadHtml)
-        .catch(logError);
-    }
-
-    function loadHtml (data) {
-        console.log(data);
-
-        let fishers = $('#catches');
-        fishers.html('');
-
-        for (const index in data) {
-
-            let fisherHtmlText = bindFisherHTMLTemplate(data[index], constants.fisherTemplate);
-
-            fishers.append($(fisherHtmlText));
-        }
-
-        addEvents();
-    }
-
-    function tryUpdateFisher (target) {
-        let id = $(target).parent().attr('data-id');
-
-        let updateRequest = {
-            url: constants.baseURL + `/${id}`,
-            method: constants.PUT,
-            data: getCurrentFisher(`div[data-id="${id}"] input`)
-        };
-
-        $.ajax(updateRequest)
-        .then(tryLoadFishers)
-        .catch(logError);
-    }
-
-    function tryDeleteFisher (target) {
-        let id = $(target).parent().attr('data-id');
-
-        let deleteRequest = {
-            url: constants.baseURL + `/${id}`,
-            method: constants.DELETE
-        };
-
-        $.ajax(deleteRequest)
-        .then(tryLoadFishers)
-        .catch(logError);
-    }
-
-    function addEvents () {
-        $('#catches button.update').on('click', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
+        let getCurrentFisher = function (selector) {
+            let fisher = {};
     
-            tryUpdateFisher(e.target);
-        });
+            $(selector).toArray().forEach(input => {
+    
+                    let jInput = $(input);
+                    let value = jInput.val();
+                    let property = input.classList[0];
+    
+                    
+                    jInput.val('');
+                    fisher[property] = !value ? 'none' : (+value ? +value : value) ;
+                });
+    
+            return JSON.stringify(fisher);
+        }
 
-        $('#catches button.delete').on('click', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
+        let reloadHtmlContent = function (selector, data, updateFunc, deleteFunc) {
 
-            tryDeleteFisher(e.target);
-        });
+            let fishers = $(selector);
+            fishers.empty();
+    
+            for (const index in data) {
+    
+                let fisherHtmlText = bindFisherHTMLTemplate(data[index], updateFunc, deleteFunc);
+    
+                fishers.append($(fisherHtmlText));
+            }
+
+            function bindFisherHTMLTemplate (fisher, updateFunc, deleteFunc) {
+
+                let template = '<div class="catch" data-id="{{{_id}}}">\n' +
+                                 '	  <label>Angler</label>\n' +
+                                 '	  <input type="text" class="angler" value="{{{angler}}}"/>\n' +
+                                 '	  <label>Weight</label>\n' +
+                                 '	  <input type="number" class="weight" value="{{{weight}}}"/>\n' +
+                                 '	  <label>Species</label>\n' +
+                                 '	  <input type="text" class="species" value="{{{species}}}"/>\n' +
+                                 '	  <label>Location</label>\n' +
+                                 '	  <input type="text" class="location" value="{{{location}}}"/>\n' +
+                                 '	  <label>Bait</label>\n' +
+                                 '	  <input type="text" class="bait" value="{{{bait}}}"/>\n' +
+                                 '	  <label>Capture Time</label>\n' +
+                                 '	  <input type="number" class="captureTime" value="{{{captureTime}}}"/>\n' +
+                                 '</div>\n'
+
+                for (const key in fisher) {
+                    template = template.replace(`{{{${key}}}}`, fisher[key]);
+                }
+
+                let jTempate = $(template)
+                    .append($('<button class="update">Update</button>').click(updateFunc))
+                    .append($('<button class="delete">Delete</button>').click(deleteFunc));
+        
+                return jTempate;
+            }
+        }
+
+        let setHeaders = function (xhr) {
+            xhr.setRequestHeader("Authorization", `Basic ${btoa('demo:demo')}`);
+        }
+
+        return {
+            createRequest: createRequest,
+            getCurrentFisher: getCurrentFisher,
+            reloadHtmlContent: reloadHtmlContent,
+            setHeaders: setHeaders
+        }
     }
 
-    function logError (e) {
-        console.log(e);
+    let app = constraints();
+
+    $.ajaxSetup({ beforeSend: app.setHeaders })
+
+    $('#addForm button.add').click(CREATE);
+    $('#aside button.load').click(READ);
+
+    function CREATE () {
+        let fisher = app.getCurrentFisher('#addForm input');
+        let createRequest = app.createRequest("POST", "", fisher);
+
+        $.ajax(createRequest).then(READ).catch((e) => console.log(e));
     }
 
-    $.ajaxSetup({ 
-        beforeSend: constants.setAuthorization,
-        contentType: constants.contentType,
-    });
+    function READ () {
+        let readRequest = app.createRequest("GET", "", {});
 
-    $('#addForm button.add').on('click', function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        tryAddFisher();
-    });
+        $.ajax(readRequest).then((data) => { 
+            app.reloadHtmlContent('#catches', data, UPDATE, DELETE); 
+        }).catch((e) => console.log(e));
+    }
 
-    $('#aside button.load').on('click', function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        tryLoadFishers();
-    });
+    function UPDATE (e) {
+
+        let routeParameter = $(e.target).parent().attr('data-id');
+        let fisher = app.getCurrentFisher(`div[data-id="${routeParameter}"] input`);
+        let updateRequest = app.createRequest("PUT", routeParameter, fisher);
+
+        $.ajax(updateRequest).then(READ).catch((e) => console.log(e));
+    }
+
+    function DELETE (e) {
+        let routeParameter = $(e.target).parent().attr('data-id');
+        let daleteRequest = app.createRequest("DELETE", routeParameter, {});
+
+        $.ajax(daleteRequest).then(READ).catch((e) => console.log(e));
+    }
 }
