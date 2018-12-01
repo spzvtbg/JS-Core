@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Http Status Cats</title>
+    <link rel="stylesheet" href="gallery.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>
+    <script src="cats-seeder.js"></script>
+    <script src="template-handler.js"></script>
+</head>
+<body>
+    <div id="all-cats-statuses" class="gallery">
+        <h1 class="header">Cool Http Status Codes Cats</h1>
+    </div>
+    <script id="cat-template" type="text/x-handlebars-template">
+        {{#each cats}}
+            <div class="card">
+                <img class="status-img" src="images/{{imageLocation}}.jpg">
+                <div class="card-block">
+                    <button class="btn">Show status code</button>
+                    <div id="{{id}}" style="visibility: hidden">
+                        <h4><span class="titel">Status Code:</span> {{statusCode}}</h4>
+                        <h4><span class="titel">Status Message:</span> {{statusMessage}}</h4>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </script>
+</body>
+</html>
